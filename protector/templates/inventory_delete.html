@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+	<!--begin::Head-->
+	<head><base href="">
+		<title>Protector</title>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" href="{% static 'assets/custom/favicon.ico' %}" />
+		<!--begin::Fonts-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Page Vendor Stylesheets(used by this page)-->
+		<link href="{% static 'assets/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets/plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<!--end::Page Vendor Stylesheets-->
+		<!--begin::Global Stylesheets Bundle(used by all pages)-->
+		<link href="{% static 'assets/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'assets/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<!--end::Global Stylesheets Bundle-->
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed">
+		<!--begin::Main-->
+		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+				<!--begin::Aside-->
+				<div id="kt_aside" class="aside pb-5 pt-5 pt-lg-0" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'80px', '300px': '100px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
+					<!--begin::Brand-->
+					<div class="aside-logo py-8" id="kt_aside_logo">
+						<!--begin::Logo-->
+						<a href="{% url 'index' %}" class="d-flex align-items-center">
+							<img alt="Logo" src="{% static 'assets/custom/logo_white.png' %}" class="h-70px logo" />
+						</a>
+						<!--end::Logo-->
+					</div>
+					<!--end::Brand-->
+					<!--begin::Aside menu-->
+					<div class="aside-menu flex-column-fluid" id="kt_aside_menu">
+						<!--begin::Aside Menu-->
+						<div class="hover-scroll-overlay-y my-2 my-lg-5 pe-lg-n1" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="5px">
+							<!--begin::Menu-->
+							<div class="menu menu-column menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold" id="#kt_aside_menu" data-kt-menu="true">
+
+								<div class="menu-item py-2">
+									<a class="menu-link menu-center" href="_orders.html">
+										<span class="menu-icon me-0">
+											<i class="bi bi-wallet2 fs-2"></i>
+										</span>
+										<span class="menu-title">Orders</span>
+									</a>
+								</div>
+								<div class="menu-item py-3">
+									<a class="menu-link menu-center" href="_quotes.html">
+										<span class="menu-icon me-0">
+											<i class="bi bi-calculator fs-2"></i>
+										</span>
+										<span class="menu-title">Quotes</span>
+									</a>
+								</div>
+								<div class="menu-item here py-3">
+									<a class="menu-link menu-center" href="{% url 'inventory' %}">
+										<span class="menu-icon me-0">
+											<i class="bi bi-archive fs-2"></i>
+										</span>
+										<span class="menu-title">Inventory</span>
+									</a>
+								</div>
+								<div class="menu-item py-3">
+									<a class="menu-link menu-center" href="_companies.html">
+										<span class="menu-icon me-0">
+											<i class="bi bi-file-text fs-2"></i>
+										</span>
+										<span class="menu-title">Companies</span>
+									</a>
+								</div>
+								<div class="menu-item py-3">
+									<span class="menu-link menu-center" title="Coming soon" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+										<span class="menu-icon me-0">
+											<i class="bi bi-clipboard-data fs-2"></i>
+										</span>
+										<span class="menu-title">Analysis</span>
+									</span>
+								</div>
+								<div class="menu-item py-2">
+									<a class="menu-link menu-center" href="_users.html">
+										<span class="menu-icon me-0">
+											<i class="bi bi-people fs-2"></i>
+										</span>
+										<span class="menu-title">Users</span>
+									</a>
+								</div>
+							</div>
+
+							<!--end::Menu-->
+						</div>
+						<!--end::Aside Menu-->
+					</div>
+					<!--end::Aside menu-->
+					<!--begin::Footer-->
+					<div class="aside-footer flex-column-auto" id="kt_aside_footer">
+						<!--begin::Menu-->
+						<div class="d-flex justify-content-center">
+							<button type="button" class="btn btm-sm btn-icon btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-overflow="true" data-kt-menu-placement="top-start" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-dismiss="click" title="Quick actions">
+								<!--begin::Svg Icon | path: icons/duotune/general/gen008.svg-->
+								<span class="svg-icon svg-icon-1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+										<path d="M3 2H10C10.6 2 11 2.4 11 3V10C11 10.6 10.6 11 10 11H3C2.4 11 2 10.6 2 10V3C2 2.4 2.4 2 3 2Z" fill="currentColor" />
+										<path opacity="0.3" d="M14 2H21C21.6 2 22 2.4 22 3V10C22 10.6 21.6 11 21 11H14C13.4 11 13 10.6 13 10V3C13 2.4 13.4 2 14 2Z" fill="currentColor" />
+										<path opacity="0.3" d="M3 13H10C10.6 13 11 13.4 11 14V21C11 21.6 10.6 22 10 22H3C2.4 22 2 21.6 2 21V14C2 13.4 2.4 13 3 13Z" fill="currentColor" />
+										<path opacity="0.3" d="M14 13H21C21.6 13 22 13.4 22 14V21C22 21.6 21.6 22 21 22H14C13.4 22 13 21.6 13 21V14C13 13.4 13.4 13 14 13Z" fill="currentColor" />
+									</svg>
+								</span>
+								<!--end::Svg Icon-->
+							</button>
+							<!--begin::Menu 2-->
+							<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px" data-kt-menu="true">
+								<!--begin::Menu item-->
+								<div class="menu-item px-3">
+									<div class="menu-content fs-6 text-dark fw-bolder px-3 py-4">Quick Actions</div>
+								</div>
+								<!--end::Menu item-->
+								<!--begin::Menu separator-->
+								<div class="separator mb-3 opacity-75"></div>
+								<!--end::Menu separator-->
+								<!--begin::Menu item-->
+								<div class="menu-item px-3">
+									<a href="_edit_order.html" class="menu-link px-3">New Order</a>
+								</div>
+								<!--end::Menu item-->
+								<!--begin::Menu item-->
+								<div class="menu-item px-3">
+									<a href="_edit_quote.html" class="menu-link px-3">New Quote</a>
+								</div>
+								<!--end::Menu item-->
+								<!--begin::Menu item-->
+								<div class="menu-item px-3">
+									<a href="{% url 'inventory_create' %}" class="menu-link px-3">New Inventory</a>
+								</div>
+								<!--end::Menu item-->
+								<!--begin::Menu item-->
+								<div class="menu-item px-3">
+									<a href="_edit_company.html" class="menu-link px-3">New Company</a>
+								</div>
+								<!--end::Menu item-->
+								<!--begin::Menu separator-->
+								<div class="mt-3"></div>
+								<!--end::Menu separator-->
+							</div>
+							<!--end::Menu 2-->
+						</div>
+						<!--end::Menu-->
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Aside-->
+				<!--begin::Wrapper-->
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+					<!--begin::Header-->
+					<div id="kt_header" style="" class="header align-items-stretch">
+						<!--begin::Container-->
+						<div class="container-fluid d-flex align-items-stretch justify-content-between">
+							{% block content %}
+
+                            <div class="container d-flex justify-content-center mt-5" style="width: 50%;">
+                                <div class="col mt-5 text-center">
+                                    <h1 class="mb-5">Delete Product</h1>
+
+                                    <p class="h5">Are you sure you want to delete the Product:</p>
+                                    <h3 class="my-5">{{ inventory.part_number }}</h3>
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        {% comment %} <input type="submit" value="Confirm">
+                                        <input type="submit" value="Cancel" onclick="window.location='{% url 'inventory' %}'; return false;"> {% endcomment %}
+                                        <input type="submit" class="btn btn-danger btn-lg" value="Confirm" >
+                                        <input type="submit" class="btn btn-primary btn-lg" onclick="window.location='{% url 'inventory' %}'; return false;" value="Cancel">
+                                    </form>
+                                </div>
+                            </div>
+
+                            {% endblock %}
+                                                    </div>
+						<!--end::Container-->
+					</div>
+					<!--end::Header-->
+
+
+					<!--begin::Footer-->
+					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+						<!--begin::Container-->
+						<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+							<!--begin::Copyright-->
+							<div class="text-dark order-2 order-md-1">
+								<span class="text-muted fw-bold me-1">2022 ©</span>
+								<a href="#" class="text-gray-800 text-hover-primary">Protector</a>
+							</div>
+							<!--end::Copyright-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Root-->
+
+
+		<!--begin::Javascript-->
+		<script>var hostUrl = "{% static 'assets/' %}";</script>
+		<!--begin::Global Javascript Bundle(used by all pages)-->
+		<script src="{% static 'assets/plugins/global/plugins.bundle.js' %}"></script>
+		<script src="{% static 'assets/js/scripts.bundle.js' %}"></script>
+		<!--end::Global Javascript Bundle-->
+
+		<!--begin::Page Vendors Javascript(used by this page)-->
+		<script src="{% static 'assets/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
+		<script src="{% static 'assets/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+		<!--end::Page Vendors Javascript-->
+
+		<!--begin::Page Custom Javascript(used by this page)-->
+		<script src="{% static 'assets/js/widgets.bundle.js' %}"></script>
+		<script src="{% static 'assets/js/custom/widgets.js' %}"></script>
+		<!--end::Page Custom Javascript-->
+		<!--end::Javascript-->
+	</body>
+	<!--end::Body-->
+</html>
