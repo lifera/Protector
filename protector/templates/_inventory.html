@@ -371,9 +371,11 @@
 													<a href="{% url 'inventory_update' item.id %}" class="text-gray-800 text-hover-primary mb-1">{{item.part_number}}</a>
 												</td>
 												<td>
+													{% for alt in item.alternativepartnumber_set.all %}
 													<span class="text-gray-600 mb-1">
-														{{item.alternative_part_number}}
+														{{ alt.name }}
 													</span>
+													{% endfor %}
 												</td>
 												<td>
 													<span class="text-gray-600 mb-1">{{item.descriptions}}</span>

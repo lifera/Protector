@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
+# from django.contrib.postgres.fields import ArrayField
 from datetime import datetime
 from django.urls import reverse
 
@@ -18,10 +18,18 @@ class AircraftType(models.Model):
         return self.name
 
 
+class AlternativePartNumber(models.Model):
+    name = models.CharField(max_length=200)
+    parent_part = models.ForeignKey('Inventory', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+
 class Inventory(models.Model):
     part_number = models.CharField(max_length=200, unique=True)
-    alternative_part_number = ArrayField(base_field=models.CharField(max_length=200, blank=True),
-                                         blank=True, null=True)
+    # alternative_part_number = ArrayField(base_field=models.CharField(max_length=200, blank=True),
+    #                                      blank=True, null=True)
     descriptions = models.TextField(blank=True, null=True)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.SET_NULL, null=True, blank=True)
     aircraft_type = models.ManyToManyField(AircraftType, blank=True)

@@ -316,11 +316,21 @@
 														<div class="col-lg-6">
 															<label class="form-label fs-6 fw-bolder text-gray-700 mb-3">Alternative Part Numbers</label>
 															<!--begin::Input group-->
+															{% for alternative_part_number in alternative_part_numbers %}
 															<div class="mb-5">
-																{{ form.alternative_part_number.errors }}
-																{{ form.alternative_part_number|add_class:"form-control form-control-solid"|append_attr:"placeholder:Alternative Part Number" }}
+
+																<input type="text" class="form-control form-control-solid" name="alternative_part_number" placeholder="Alternative Part Number" value="{{ alternative_part_number|default_if_none:'' }}" />
+<!--																{{ form.alternative_part_number.errors }}-->
+<!--																{{ form.alternative_part_number|add_class:"form-control form-control-solid"|append_attr:"placeholder:Alternative Part Number" }}-->
 <!--																<input type="text" class="form-control form-control-solid" name="alternative_part_number" placeholder="Alternative Part Number" value="{{ alternative_part_number|default_if_none:'' }}" />-->
 															</div>
+															{% empty %}
+																<input type="text" class="form-control form-control-solid" name="alternative_part_number" placeholder="Alternative Part Number" value="{{ alternative_part_number|default_if_none:'' }}" />
+															{% endfor %}
+																<table>
+																	{{ altformset }}
+																</table>
+<!--															<button id="add-another">add another</button>-->
 															<!--end::Input group-->
 															<!--begin::Input group-->
 <!--															<div class="mb-5">-->
@@ -465,6 +475,23 @@
 		<!--begin::Page Custom Javascript(used by this page)-->
 		<script src="{% static 'assets/js/widgets.bundle.js' %}"></script>
 		<script src="{% static 'assets/js/custom/widgets.js' %}"></script>
+<!--		<script>-->
+<!--			let form_count = Number($("[name=alt_part_number_count]").val());-->
+<!--			// get extra form count so we know what index to use for the next item.-->
+
+<!--			$("#add-another").click(function() {-->
+<!--				form_count ++;-->
+
+<!--				let element = $('<input type="text"/>');-->
+<!--				element.attr('name', 'alt_part_number_' + form_count);-->
+<!--				$("#forms").append(element);-->
+<!--				// build element and append it to our forms container-->
+
+<!--				$("[name=alt_part_number_count]").val(form_count);-->
+<!--				// increment form count so our view knows to populate-->
+<!--				// that many fields for validation-->
+<!--			})-->
+<!--		</script>-->
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->
 	</body>
